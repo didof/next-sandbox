@@ -1,3 +1,5 @@
+import { Nav } from 'react-bootstrap'
+
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -25,8 +27,8 @@ export default ({ href, children, prefetch }) => {
 	}
 
 	return (
-		<a href={href} onClick={handle_click} id={href}>
+		<Nav.Link href={href} onClick={handle_click} id={href}>
 			{children}
-		</a>
+		</Nav.Link>
 	)
 }

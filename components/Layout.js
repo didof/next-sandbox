@@ -1,3 +1,12 @@
+import {
+	Navbar,
+	Nav,
+	Form,
+	FormControl,
+	Button,
+	Container,
+} from 'react-bootstrap'
+
 import CustomLink from './CustomLink'
 
 const LINKS = [
@@ -9,19 +18,27 @@ const LINKS = [
 export default ({ children }) => {
 	return (
 		<>
-			<nav>
-				<ul>
-					{LINKS.map(({ url, label, prefetch }) => {
-						return (
-							<li key={url}>
-								<CustomLink href={url} prefetch={prefetch}>
-									{label}
-								</CustomLink>
-							</li>
-						)
-					})}
-				</ul>
-			</nav>
+			{' '}
+			<Navbar bg='dark' variant='dark'>
+				<Container>
+					<Navbar.Brand href='#home'>Next-sandbox</Navbar.Brand>
+					<Nav className='mr-auto'>
+						{LINKS.map(({ url, label, prefetch }) => {
+							return (
+								<li key={url}>
+									<CustomLink href={url} prefetch={prefetch}>
+										{label}
+									</CustomLink>
+								</li>
+							)
+						})}
+					</Nav>
+					<Form inline>
+						<FormControl disabled type='text' placeholder='Search' className='mr-sm-2' />
+						<Button disabled variant='outline-info'>Search</Button>
+					</Form>
+				</Container>
+			</Navbar>
 			{children}
 		</>
 	)
